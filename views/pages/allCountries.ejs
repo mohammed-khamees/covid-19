@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <%- include('../layout/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../layout/header.ejs') %>
+            <main>
+                <div class="cards">
+                    <% data.forEach(element=> {%>
+                        <div class="card">
+                            <p>
+                                country: <%= element.country%>
+                            </p>
+                            <p>
+                                Total Confirmed: <%= element.totalConfirmed%>
+                            </p>
+                            <p>
+                                Total Deaths: <%= element.totalDeaths%>
+                            </p>
+                            <p>
+                                Total Recovered: <%= element.totalRecovered%>
+                            </p>
+                            <p>
+                                Date: <%= element.date%>
+                            </p>
+                            <form action="/myRecords" method="POST">
+                                <input type="hidden" name="country" value="<%= element.country%>">
+                                <input type="hidden" name="totalConfirmed" value="<%= element.totalConfirmed%>">
+                                <input type="hidden" name="totalDeaths" value="<%= element.totalDeaths%>">
+                                <input type="hidden" name="totalRecovered" value="<%= element.totalRecovered%>">
+                                <input type="hidden" name="date" value=" <%= element.date%>">
+                                <input type="submit" value="add-to-my-records" class="btn">
+                            </form>
+                        </div>
+                        <% }); %>
+                </div>
+            </main>
+            <footer></footer>
+    </body>
+
+</html>

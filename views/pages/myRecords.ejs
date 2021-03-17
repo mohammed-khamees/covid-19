@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <%- include('../layout/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../layout/header.ejs') %>
+            <main>
+                <div class="cards">
+                    <% data.forEach(element=> {%>
+                        <div class="card">
+                            <p>
+                                country: <%= element.country%>
+                            </p>
+                            <p>
+                                Total Confirmed: <%= element.totalconfirmed%>
+                            </p>
+                            <p>
+                                Total Deaths: <%= element.totaldeaths%>
+                            </p>
+                            <p>
+                                Total Recovered: <%= element.totalrecovered%>
+                            </p>
+                            <p>
+                                Date: <%= element.date%>
+                            </p>
+                            <form action="/details/<%= element.id%>" method="GET">
+                                <input type="submit" value="View-Details" class="btn">
+                            </form>
+                        </div>
+                        <% }); %>
+                </div>
+            </main>
+            <footer></footer>
+    </body>
+
+</html>

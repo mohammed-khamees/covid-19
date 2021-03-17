@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <%- include('../layout/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../layout/header.ejs') %>
+            <main>
+                <div class="cards">
+                    <div class="card">
+                        <p>
+                            country: <%= data.country%>
+                        </p>
+                        <p>
+                            Total Confirmed: <%= data.totalconfirmed%>
+                        </p>
+                        <p>
+                            Total Deaths: <%= data.totaldeaths%>
+                        </p>
+                        <p>
+                            Total Recovered: <%= data.totalrecovered%>
+                        </p>
+                        <p>
+                            Date: <%= data.date%>
+                        </p>
+                        <form action="/details/<%= data.id%>?_method=delete" method="POST">
+                            <input type="submit" value="Delete" class="btn">
+                        </form>
+                    </div>
+                </div>
+            </main>
+            <footer></footer>
+    </body>
+
+</html>

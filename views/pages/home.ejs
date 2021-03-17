@@ -8,17 +8,19 @@
     <body>
         <%- include('../layout/header.ejs') %>
             <div class="content">
-                <div class="info">
-                    <p>
+                <h2 class="title">World Total Statistics</h2>
+                <div class="infos">
+                    <p class="info">
                         Total Confirmed: <%=data.TotalConfirmed %>
                     </p>
-                    <p>
+                    <p class="info">
                         Total Deaths: <%=data.TotalDeaths %>
                     </p>
-                    <p>
+                    <p class="info">
                         Total Recovered: <%=data.TotalRecovered %>
                     </p>
                 </div>
+                <h2 class="title">Get Statistics for a specific country</h2>
                 <form action="/getCountryResult" method="GET" class="result">
                     <input type="text" name="country" placeholder="country name">
                     <input type="date" name="from" placeholder="from">

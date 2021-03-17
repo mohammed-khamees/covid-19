@@ -9,28 +9,32 @@
         <%- include('../layout/header.ejs') %>
             <main>
                 <div class="cards">
-                    <% data.forEach(element=> {%>
-                        <div class="card">
-                            <p>
-                                country: <%= element.country%>
-                            </p>
-                            <p>
-                                Total Confirmed: <%= element.totalconfirmed%>
-                            </p>
-                            <p>
-                                Total Deaths: <%= element.totaldeaths%>
-                            </p>
-                            <p>
-                                Total Recovered: <%= element.totalrecovered%>
-                            </p>
-                            <p>
-                                Date: <%= element.date%>
-                            </p>
-                            <form action="/details/<%= element.id%>" method="GET">
-                                <input type="submit" value="View-Details" class="btn">
-                            </form>
-                        </div>
-                        <% }); %>
+                    <% if(data.length) { %>
+                        <% data.forEach(element=> {%>
+                            <div class="card">
+                                <p>
+                                    country: <%= element.country%>
+                                </p>
+                                <p>
+                                    Total Confirmed: <%= element.totalconfirmed%>
+                                </p>
+                                <p>
+                                    Total Deaths: <%= element.totaldeaths%>
+                                </p>
+                                <p>
+                                    Total Recovered: <%= element.totalrecovered%>
+                                </p>
+                                <p>
+                                    Date: <%= element.date%>
+                                </p>
+                                <form action="/details/<%= element.id%>" method="GET">
+                                    <input type="submit" value="View-Details" class="btn">
+                                </form>
+                            </div>
+                            <% }); %>
+                                <% }else { %>
+                                    <p class="no">There are no Records in your DataBase</p>
+                                    <% }%>
                 </div>
             </main>
             <footer></footer>
